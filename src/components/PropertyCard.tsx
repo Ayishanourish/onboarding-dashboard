@@ -26,7 +26,15 @@ type Props = { property: Property; onClick: () => void };
 
 export default function PropertyCard({ property, onClick }: Props) {
   const [imgError, setImgError] = useState(false);
-  const { name, location, image, bedrooms, derivedStatus } = property;
+  const { name, location, image, bedrooms, derivedStatus, targetGoLiveDate } = property;
+
+  const goLiveLabel = targetGoLiveDate
+    ? new Date(targetGoLiveDate).toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })
+    : null;
 
   const showImage = image && !imgError;
 
@@ -59,6 +67,12 @@ export default function PropertyCard({ property, onClick }: Props) {
           {location} &middot; {bedrooms} bed{bedrooms !== 1 ? "s" : ""}
         </p>
       </div>
+      {goLiveLabel && (
+        <div className={styles.footer}>
+          <span className={styles.goLiveLabel}>Target go-live</span>
+          <span className={styles.goLiveDate}>{goLiveLabel}</span>
+        </div>
+      )}
     </div>
   );
 }

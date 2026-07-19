@@ -92,3 +92,24 @@
   color: var(--ms-text-muted);
   letter-spacing: 0.01em;
 }
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px 14px;
+  border-top: 1px solid var(--ms-border);
+}
+
+.goLiveLabel {
+  font-size: 0.7rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ms-text-subtle);
+}
+
+.goLiveDate {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ms-text-muted);
+}
