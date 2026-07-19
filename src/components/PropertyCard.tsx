@@ -5,17 +5,25 @@ import Image from "next/image";
 import { Property } from "@/lib/types";
 import styles from "./PropertyCard.module.css";
 
-type Props = Pick<Property, "name" | "location" | "image">;
+const STATUS_LABELS: Record<Property["derivedStatus"], string> = {
+  live: "Live",
+  attention: "Needs attention",
+  in_progress: "In progress",
+  not_started: "Not started",
+};
 
-export default function PropertyCard({ name, location, image }: Props) {
+type Props = { property: Property };
+
+export default function PropertyCard({ property }: Props) {
   const [imgError, setImgError] = useState(false);
+  const { name, location, image, bedrooms, derivedStatus } = property;
 
   const showImage = image && !imgError;
 
   return (
     <div className={styles.card}>
-      {showImage ? (
-        <div className={styles.imageWrapper}>
+      <div className={showImage ? styles.imageWrapper : styles.placeholder}>
+        {showImage && (
           <Image
             src={image}
             alt={name}
@@ -23,13 +31,17 @@ export default function PropertyCard({ name, location, image }: Props) {
             style={{ objectFit: "cover" }}
             onError={() => setImgError(true)}
           />
-        </div>
-      ) : (
-        <div className={styles.placeholder} />
-      )}
+        )}
+        <span className={`${styles.badge} ${styles[derivedStatus]}`}>
+          {STATUS_LABELS[derivedStatus]}
+        </span>
+      </div>
+
       <div className={styles.body}>
         <h2 className={styles.name}>{name}</h2>
-        <p className={styles.location}>{location}</p>
+        <p className={styles.meta}>
+          {location} &middot; {bedrooms} bed{bedrooms !== 1 ? "s" : ""}
+        </p>
       </div>
     </div>
   );

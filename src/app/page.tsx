@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <div className={styles.grid}>
       {properties.map((p) => (
-        <PropertyCard key={p.id} name={p.name} location={p.location} image={p.image} />
+        <PropertyCard key={p.id} property={p} />
       ))}
     </div>
   );
