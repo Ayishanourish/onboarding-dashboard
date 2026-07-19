@@ -12,16 +12,16 @@ const STATUS_LABELS: Record<Property["derivedStatus"], string> = {
   not_started: "Not started",
 };
 
-type Props = { property: Property };
+type Props = { property: Property; onClick: () => void };
 
-export default function PropertyCard({ property }: Props) {
+export default function PropertyCard({ property, onClick }: Props) {
   const [imgError, setImgError] = useState(false);
   const { name, location, image, bedrooms, derivedStatus } = property;
 
   const showImage = image && !imgError;
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={onClick} style={{ cursor: "pointer" }}>
       <div className={showImage ? styles.imageWrapper : styles.placeholder}>
         {showImage && (
           <Image
