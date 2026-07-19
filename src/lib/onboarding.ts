@@ -23,7 +23,7 @@ function deriveStatus(steps: Step[]): PropertyStatus {
 }
 
 function readableStepLabel(stepId: string) {
-    return stepId.replace("-", " ");
+    return stepId.replaceAll("-", " ");
 }
 
 function buildSteps(
@@ -73,7 +73,7 @@ export function normaliseProperty(
         targetGoLiveDate: rawProperty.targetGoLiveDate,
         steps,
         derivedStatus: deriveStatus(steps),
-        completedCount: steps.filter((s) => s.status === 'complete')?.length ?? 0
+        completedCount: steps.filter((s) => s.status === 'complete').length
     };
 }
 
