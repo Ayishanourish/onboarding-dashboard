@@ -2,29 +2,34 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 16px 24px;
+  padding: 20px 32px;
 }
 
 .button {
-  padding: 6px 16px;
-  border: 1px solid #e5e7eb;
-  border-radius: 999px;
-  background: #fff;
-  font-size: 0.875rem;
+  padding: 6px 18px;
+  border: 1px solid var(--ms-border);
+  border-radius: var(--ms-radius-pill);
+  background: transparent;
+  font-family: var(--ms-font-body);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
   cursor: pointer;
-  color: #374151;
+  color: var(--ms-text-muted);
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
 }
 
 .button:hover {
-  background: #f9fafb;
+  border-color: var(--ms-border-strong);
+  color: var(--ms-text);
 }
 
 .active {
-  background: #111827;
+  background: var(--ms-text);
   color: #fff;
-  border-color: #111827;
+  border-color: var(--ms-text);
 }
 
 .active:hover {
-  background: #1f2937;
+  background: var(--ms-text);
+  color: #fff;
 }

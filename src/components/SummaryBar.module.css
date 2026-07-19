@@ -1,24 +1,37 @@
 .bar {
   display: flex;
-  gap: 24px;
-  padding: 16px 24px;
-  border-bottom: 1px solid #e5e7eb;
-  background: #fff;
+  gap: 0;
+  padding: 20px 32px;
+  border-bottom: 1px solid var(--ms-border);
+  background: var(--ms-surface);
 }
 
 .stat {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
+  padding-right: 32px;
+  margin-right: 32px;
+  border-right: 1px solid var(--ms-border);
+}
+
+.stat:last-child {
+  border-right: none;
+  padding-right: 0;
+  margin-right: 0;
 }
 
 .value {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-family: var(--ms-font-heading);
+  font-size: 2rem;
+  font-weight: 600;
   line-height: 1;
+  color: var(--ms-gold);
 }
 
 .label {
-  font-size: 0.8rem;
-  color: #6b7280;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ms-text-muted);
 }

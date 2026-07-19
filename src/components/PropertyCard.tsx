@@ -40,6 +40,7 @@ export default function PropertyCard({ property, onClick }: Props) {
             fill
             style={{ objectFit: "cover" }}
             onError={() => setImgError(true)}
+            sizes="(max-width: 700px) 100vw, 350px"
           />
         ) : (
           <div className={styles.placeholderContent}>

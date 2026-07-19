@@ -1,26 +1,65 @@
 @import "tailwindcss";
 
+/* ─── Design tokens ─────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Surfaces */
+  --ms-bg:             #F7F4F0;
+  --ms-surface:        #FFFFFF;
+  --ms-surface-subtle: #FAF8F5;
+
+  /* Borders */
+  --ms-border:         #EAE3D9;
+  --ms-border-strong:  #D4CAC0;
+
+  /* Text */
+  --ms-text:           #18140D;
+  --ms-text-muted:     #8A7D70;
+  --ms-text-subtle:    #B5A99C;
+
+  /* Accent — warm gold */
+  --ms-gold:           #A67C52;
+  --ms-gold-light:     #F0E8DC;
+
+  /* Status — all deliberately muted to stay calm */
+  --ms-live-bg:        #ECF5EE;
+  --ms-live-text:      #1A5930;
+  --ms-attention-bg:   #FAF0EE;
+  --ms-attention-text: #8B2020;
+  --ms-progress-bg:    #EDF1F9;
+  --ms-progress-text:  #1E3670;
+  --ms-pending-bg:     #F2F0ED;
+  --ms-pending-text:   #5E574E;
+  --ms-hold-bg:        #FAF4E6;
+  --ms-hold-text:      #7A5A1E;
+  --ms-unknown-bg:     #F2F0ED;
+  --ms-unknown-text:   #5E574E;
+
+  /* Radius */
+  --ms-radius-sm:   6px;
+  --ms-radius-md:   10px;
+  --ms-radius-lg:   14px;
+  --ms-radius-pill: 999px;
+
+  /* Shadow */
+  --ms-shadow-card:  0 1px 3px rgba(20,14,8,0.05), 0 4px 16px rgba(20,14,8,0.07);
+  --ms-shadow-modal: 0 8px 48px rgba(20,14,8,0.18);
+
+  /* Typography */
+  --ms-font-heading: var(--font-cormorant), 'Georgia', serif;
+  --ms-font-body:    var(--font-geist-sans), 'Helvetica Neue', Arial, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Base ──────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--ms-bg);
+  color: var(--ms-text);
+  font-family: var(--ms-font-body);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

@@ -1,0 +1,51 @@
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position:  600px 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--ms-border) 25%,
+    var(--ms-surface-subtle) 50%,
+    var(--ms-border) 75%
+  );
+  background-size: 1200px 100%;
+  animation: shimmer 1.6s infinite linear;
+  border-radius: var(--ms-radius-sm);
+}
+
+.card {
+  background: var(--ms-surface);
+  border: 1px solid var(--ms-border);
+  border-radius: var(--ms-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--ms-shadow-card);
+}
+
+.image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.body {
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nameLine {
+  height: 20px;
+  width: 80%;
+}
+
+.nameLineShort {
+  height: 20px;
+  width: 50%;
+}
+
+.metaLine {
+  height: 14px;
+  width: 65%;
+}
