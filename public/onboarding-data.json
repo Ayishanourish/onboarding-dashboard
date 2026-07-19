@@ -1,0 +1,158 @@
+{
+  "owner": {
+    "id": "own_8f2c",
+    "name": "Charlotte Pemberton",
+    "email": "charlotte.pemberton@example.com",
+    "joinedDate": "2026-05-18",
+    "accountManager": "Madestays Onboarding Team"
+  },
+  "onboardingStepDefinitions": [
+    { "id": "property-details", "label": "Property details & description", "order": 1 },
+    { "id": "photography", "label": "Professional photography", "order": 2 },
+    { "id": "safety-certs", "label": "Safety certificates (gas, electrical, EPC)", "order": 3 },
+    { "id": "insurance", "label": "Insurance documentation", "order": 4 },
+    { "id": "ownership", "label": "Proof of ownership & authority to let", "order": 5 },
+    { "id": "payout", "label": "Payout & banking details", "order": 6 },
+    { "id": "pricing", "label": "Pricing strategy sign-off", "order": 7 },
+    { "id": "channels", "label": "Channel listing setup", "order": 8 },
+    { "id": "welcome-guide", "label": "Welcome guide & house manual", "order": 9 },
+    { "id": "agreement", "label": "Management agreement signed", "order": 10 }
+  ],
+  "statusLegend": {
+    "complete": "Step finished and approved.",
+    "in_progress": "Work is underway, nothing needed from the owner right now.",
+    "action_required": "Blocked. The owner needs to do something to move this forward.",
+    "not_started": "Not begun yet."
+  },
+  "properties": [
+    {
+      "id": "prop_lansdowne",
+      "name": "The Lansdowne Townhouse",
+      "location": "Notting Hill, London",
+      "bedrooms": 4,
+      "image": "https://picsum.photos/seed/lansdowne/800/600",
+      "targetGoLiveDate": "2026-07-25",
+      "steps": [
+        { "id": "payout", "status": "in_progress" },
+        { "id": "property-details", "status": "complete" },
+        { "id": "welcome-guide", "status": "action_required", "note": "We need the wifi password and any parking instructions to finish the house manual." },
+        { "id": "safety-certs", "status": "action_required", "note": "The EPC on file expired in March. Please upload a current certificate." },
+        { "id": "agreement", "status": "complete" },
+        { "id": "photography", "status": "complete" },
+        { "id": "pricing", "status": "in_progress" },
+        { "id": "insurance", "status": "complete" },
+        { "id": "ownership", "status": "complete" },
+        { "id": "channels", "status": "not_started" }
+      ]
+    },
+    {
+      "id": "prop_cadogan",
+      "name": "Cadogan Gardens Residence",
+      "location": "Chelsea, London",
+      "bedrooms": 3,
+      "image": "https://picsum.photos/seed/cadogan/800/600",
+      "targetGoLiveDate": "2026-06-30",
+      "steps": [
+        { "id": "property-details", "status": "complete" },
+        { "id": "photography", "status": "complete" },
+        { "id": "safety-certs", "status": "complete" },
+        { "id": "insurance", "status": "complete" },
+        { "id": "ownership", "status": "complete" },
+        { "id": "payout", "status": "complete" },
+        { "id": "pricing", "status": "complete" },
+        { "id": "channels", "status": "complete" },
+        { "id": "welcome-guide", "status": "complete" },
+        { "id": "agreement", "status": "complete" }
+      ]
+    },
+    {
+      "id": "prop_mayfair",
+      "name": "Mayfair Penthouse",
+      "location": "Mayfair, London",
+      "bedrooms": 2,
+      "image": "https://picsum.photos/id/104857/800/600",
+      "targetGoLiveDate": "2026-08-15",
+      "steps": [
+        { "id": "property-details", "status": "in_progress" },
+        { "id": "photography", "status": "not_started" },
+        { "id": "safety-certs", "status": "not_started" },
+        { "id": "insurance", "status": "not_started" },
+        { "id": "ownership", "status": "not_started" },
+        { "id": "payout", "status": "not_started" },
+        { "id": "pricing", "status": "not_started" },
+        { "id": "channels", "status": "not_started" },
+        { "id": "welcome-guide", "status": "not_started" },
+        { "id": "agreement", "status": "not_started" }
+      ]
+    },
+    {
+      "id": "prop_rectory",
+      "name": "The Old Rectory at Lower Slaughter with the Coach House Annexe and Walled Garden",
+      "location": "Lower Slaughter, Cotswolds",
+      "bedrooms": 6,
+      "image": "https://picsum.photos/seed/rectory/800/600",
+      "targetGoLiveDate": "2026-09-01",
+      "steps": [
+        { "id": "property-details", "status": "complete" },
+        { "id": "photography", "status": "in_progress" },
+        { "id": "safety-certs", "status": "complete" },
+        { "id": "insurance", "status": "action_required", "note": "The policy provided does not cover short-term letting. Please send an updated schedule." },
+        { "id": "ownership", "status": "complete" },
+        { "id": "payout", "status": "on_hold" },
+        { "id": "pricing", "status": "not_started" },
+        { "id": "channels", "status": "not_started" },
+        { "id": "welcome-guide", "status": "not_started" },
+        { "id": "agreement", "status": "in_progress" }
+      ]
+    },
+    {
+      "id": "prop_porthcurno",
+      "name": "Porthcurno Cliff House",
+      "location": "Porthcurno, Cornwall",
+      "bedrooms": 5,
+      "image": "",
+      "targetGoLiveDate": "2026-06-20",
+      "steps": [
+        { "id": "property-details", "status": "complete" },
+        { "id": "photography", "status": "complete" },
+        { "id": "safety-certs", "status": "complete" },
+        { "id": "insurance", "status": "complete" },
+        { "id": "ownership", "status": "action_required", "note": "The name on the title does not match the account holder. Please provide authority to let." },
+        { "id": "payout", "status": "in_progress" },
+        { "id": "pricing", "status": "complete" },
+        { "id": "channels", "status": "in_progress" },
+        { "id": "welcome-guide", "status": "complete" },
+        { "id": "agreement", "status": "complete" }
+      ]
+    },
+    {
+      "id": "prop_eaton",
+      "name": "Eaton Square Apartment",
+      "location": "Belgravia, London",
+      "bedrooms": 3,
+      "image": "https://picsum.photos/seed/eaton/800/600",
+      "targetGoLiveDate": "2026-06-10",
+      "steps": [
+        { "id": "property-details", "status": "complete" },
+        { "id": "photography", "status": "action_required", "note": "The shoot was cancelled twice. Please confirm a date that works." },
+        { "id": "safety-certs", "status": "action_required", "note": "Gas safety certificate is missing." },
+        { "id": "insurance", "status": "action_required" },
+        { "id": "ownership", "status": "complete" },
+        { "id": "payout", "status": "not_started" },
+        { "id": "pricing", "status": "not_started" },
+        { "id": "channels", "status": "not_started" },
+        { "id": "welcome-guide", "status": "not_started" },
+        { "id": "agreement", "status": "in_progress" }
+      ]
+    },
+    {
+      "id": "prop_kingsgate",
+      "name": "Kingsgate Mews House",
+      "location": "Marylebone, London",
+      "bedrooms": 3,
+      "image": "https://picsum.photos/seed/kingsgate/800/600",
+      "targetGoLiveDate": "2026-10-01",
+      "steps": []
+    }
+  ]
+}
