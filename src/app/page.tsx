@@ -10,6 +10,8 @@ import StepsModal from "@/components/StepsModal";
 import SkeletonCard from "@/components/SkeletonCard";
 import styles from "./page.module.css";
 
+const LOAD_DELAY_MS = 1000;
+
 export default function Home() {
   const [data, setData] = useState<OnboardingData | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -23,6 +25,12 @@ export default function Home() {
         if (!res.ok) throw new Error(`Failed to load data (${res.status})`);
         return res.json();
       })
+      .then(
+        (json: OnboardingData) =>
+          new Promise<OnboardingData>((resolve) =>
+            setTimeout(() => resolve(json), LOAD_DELAY_MS)
+          )
+      )
       .then((json: OnboardingData) => setData(json))
       .catch((err: unknown) => {
         setError(err instanceof Error ? err.message : "Unknown error");
