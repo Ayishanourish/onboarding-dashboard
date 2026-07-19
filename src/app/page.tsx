@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { OnboardingData } from "@/lib/types";
+import { normaliseData } from "@/lib/onboarding";
+import PropertyCard from "@/components/PropertyCard";
 
 export default function Home() {
   const [data, setData] = useState<OnboardingData | null>(null);
@@ -22,10 +24,14 @@ export default function Home() {
   if (error) return <p>Error: {error}</p>;
   if (!data) return <p>Loading...</p>;
 
+  const properties = normaliseData(data);
+
   return (
     <ul>
-      {data.properties.map((p) => (
-        <li key={p.id}>{p.name}</li>
+      {properties.map((p) => (
+        <li key={p.id}>
+          <PropertyCard name={p.name} location={p.location} image={p.image} />
+        </li>
       ))}
     </ul>
   );
