@@ -1,5 +1,9 @@
 # Madestays Owner Dashboard
 
+
+Link: https://onboarding-dashboard-steel.vercel.app/
+
+
 ![dashboard screenshot](/public/screenshot.png "Dashboard view")
 
 
@@ -33,7 +37,7 @@ This dashboard lets property owners onboard their properties to Madestay. Owners
 
 This project is deployed on Vercel. Pushes to `main` trigger automatic deployments.
 
-Live url: <will update after deploy>
+Live url: [https://onboarding-dashboard-steel.vercel.app/](https://onboarding-dashboard-steel.vercel.app/)
 
 
 ## Getting started
