@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { OnboardingData } from "@/lib/types";
 import { normaliseData } from "@/lib/onboarding";
 import PropertyCard from "@/components/PropertyCard";
+import SummaryBar from "@/components/SummaryBar";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -26,12 +27,17 @@ export default function Home() {
   if (!data) return <p>Loading...</p>;
 
   const properties = normaliseData(data);
+  const live = properties.filter((p) => p.derivedStatus === "live").length;
+  const attention = properties.filter((p) => p.derivedStatus === "attention").length;
 
   return (
-    <div className={styles.grid}>
+    <>
+      <SummaryBar total={properties.length} live={live} attention={attention} />
+      <div className={styles.grid}>
       {properties.map((p) => (
         <PropertyCard key={p.id} property={p} />
       ))}
     </div>
+    </>
   );
 }
