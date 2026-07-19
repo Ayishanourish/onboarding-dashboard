@@ -5,11 +5,13 @@ import { OnboardingData } from "@/lib/types";
 import { normaliseData } from "@/lib/onboarding";
 import PropertyCard from "@/components/PropertyCard";
 import SummaryBar from "@/components/SummaryBar";
+import FilterBar, { Filter } from "@/components/FilterBar";
 import styles from "./page.module.css";
 
 export default function Home() {
   const [data, setData] = useState<OnboardingData | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [filter, setFilter] = useState<Filter>("all");
 
   useEffect(() => {
     fetch("/onboarding-data.json")
@@ -30,14 +32,19 @@ export default function Home() {
   const live = properties.filter((p) => p.derivedStatus === "live").length;
   const attention = properties.filter((p) => p.derivedStatus === "attention").length;
 
+  const visible = filter === "all"
+    ? properties
+    : properties.filter((p) => p.derivedStatus === filter);
+
   return (
     <>
       <SummaryBar total={properties.length} live={live} attention={attention} />
+      <FilterBar active={filter} onChange={setFilter} />
       <div className={styles.grid}>
-      {properties.map((p) => (
-        <PropertyCard key={p.id} property={p} />
-      ))}
-    </div>
+        {visible.map((p) => (
+          <PropertyCard key={p.id} property={p} />
+        ))}
+      </div>
     </>
   );
 }
