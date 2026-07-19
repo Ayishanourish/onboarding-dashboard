@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { OnboardingData } from "@/lib/types";
 import { normaliseData } from "@/lib/onboarding";
 import PropertyCard from "@/components/PropertyCard";
+import styles from "./page.module.css";
 
 export default function Home() {
   const [data, setData] = useState<OnboardingData | null>(null);
@@ -27,12 +28,10 @@ export default function Home() {
   const properties = normaliseData(data);
 
   return (
-    <ul>
+    <div className={styles.grid}>
       {properties.map((p) => (
-        <li key={p.id}>
-          <PropertyCard name={p.name} location={p.location} image={p.image} />
-        </li>
+        <PropertyCard key={p.id} name={p.name} location={p.location} image={p.image} />
       ))}
-    </ul>
+    </div>
   );
 }
