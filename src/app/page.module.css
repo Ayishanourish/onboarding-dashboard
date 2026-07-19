@@ -1,6 +1,36 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-right: 24px;
+}
+
+.search {
+  padding: 6px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  outline: none;
+  width: 220px;
+}
+
+.search:focus {
+  border-color: #111827;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
   padding: 24px;
+}
+
+.empty {
+  display: flex;
+  justify-content: center;
+  padding: 80px 24px;
+  color: #6b7280;
+  font-size: 0.9rem;
 }

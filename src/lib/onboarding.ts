@@ -30,7 +30,8 @@ function buildSteps(
     rawProperty: RawProperty,
     definitions: StepDefinition[],
 ): Step[] {
-    const byId = new Map(rawProperty.steps.map((s) => [s.id, s]));
+    const rawSteps = Array.isArray(rawProperty.steps) ? rawProperty.steps : [];
+    const byId = new Map(rawSteps.map((s) => [s.id, s]));
 
     // Fill in any step the property is missing as "not_started"
     if (definitions.length > 0) {
@@ -49,7 +50,7 @@ function buildSteps(
     }
 
     // No definitions: fall back to whatever the property provides
-    return rawProperty.steps.map((s, i) => ({
+    return rawSteps.map((s, i) => ({
         id: s.id,
         label: readableStepLabel(s.id),
         order: i + 1,
@@ -65,20 +66,24 @@ export function normaliseProperty(
     const steps = buildSteps(rawProperty, definitions);
 
     return {
-        id: rawProperty.id,
-        name: rawProperty.name,
-        location: rawProperty.location,
-        bedrooms: rawProperty.bedrooms,
+        id: rawProperty.id || "",
+        name: rawProperty.name?.trim() || "Unnamed property",
+        location: rawProperty.location?.trim() || "Unknown location",
+        bedrooms: Number.isFinite(rawProperty.bedrooms) && rawProperty.bedrooms >= 0
+            ? rawProperty.bedrooms
+            : 0,
         image: rawProperty.image?.trim() || "",
-        targetGoLiveDate: rawProperty.targetGoLiveDate,
+        targetGoLiveDate: rawProperty.targetGoLiveDate || "",
         steps,
         derivedStatus: deriveStatus(steps),
-        completedCount: steps.filter((s) => s.status === 'complete').length
+        completedCount: steps.filter((s) => s.status === "complete").length,
     };
 }
 
 export function normaliseData(data: OnboardingData): Property[] {
-    return data.properties.map((p) =>
-        normaliseProperty(p, data.onboardingStepDefinitions),
-    );
+    if (!Array.isArray(data?.properties)) return [];
+    if (!Array.isArray(data?.onboardingStepDefinitions)) return [];
+    return data.properties
+        .filter((p) => p && typeof p === "object")
+        .map((p) => normaliseProperty(p, data.onboardingStepDefinitions));
 }
